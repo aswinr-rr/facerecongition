@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Login</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #ffffff);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 20px;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            color: #00796b; /* Dark teal color */
+            margin-bottom: 20px;
+            font-size: 2em;
+            letter-spacing: 1px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left; /* Align label text to the left */
+        }
+
+        input[type="text"], input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4db6ac; /* Light teal color */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #009688; /* Darker teal color */
+            transform: translateY(-2px);
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login as Teacher</h1>
+        <form method="POST">
+            <label for="username">Username</label>
+            <input type="text" name="username" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+
+        {% if error %}
+        <p class="error-message">{{ error }}</p>
+        {% endif %}
+    </div>
+
+    <script>
+        // Display a welcome message with a timeout
+        window.onload = function() {
+            setTimeout(function() {
+                alert("Welcome to the Teacher Login Page!");
+            }, 500);
+        };
+    </script>
+</body>
+</html>

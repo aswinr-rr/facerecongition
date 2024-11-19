@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Timetable</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #ffffff);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #00796b;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        label {
+            font-size: 1em;
+            margin-top: 10px;
+            text-align: left;
+        }
+        select, input[type="time"] {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4db6ac;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #009688;
+        }
+        .messages {
+            margin-top: 20px;
+            font-size: 1em;
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Timetable</h1>
+        
+        <form action="{{ url_for('update_timetable') }}" method="post">
+            <label for="day">Day:</label>
+            <select name="day" id="day" required>
+                <option value="">Select a Day</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+            </select>
+
+            <label for="subject">Subject:</label>
+            <select name="subject" id="subject" required>
+                <option value="">Select a Subject</option>
+                <option value="Python_Programming">Python Programming</option>
+                <option value="Flutter">Flutter</option>
+                <option value="Mechan">Mechan</option>
+            </select>
+
+            <label for="start_time">Start Time (HH:MM):</label>
+            <input type="time" name="start_time" id="start_time" required>
+
+            <label for="end_time">End Time (HH:MM):</label>
+            <input type="time" name="end_time" id="end_time" required>
+
+            <button type="submit">Update Timetable</button>
+        </form>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="messages">
+                    {% for category, message in messages %}
+                        <p class="{{ category }}">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form action="{{ url_for('teacher_dashboard') }}" method="get">
+            <br>
+            <button type="submit">Back to Dashboard</button>
+        </form>
+    </div>
+</body>
+</html>

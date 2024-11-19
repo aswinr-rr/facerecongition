@@ -1,0 +1,44 @@
+{
+    "Monday": {
+        "Flutter": {
+            "start_time": "09:00",
+            "end_time": "10:00"
+        },
+        "mmlll": {
+            "start_time": "12:30",
+            "end_time": "13:30"
+        },
+        "Mechan": {
+            "start_time": "11:00",
+            "end_time": "12:00"
+        }
+    },
+    "Wednesday": {
+        "Cybersecurity": {
+            "start_time": "09:00",
+            "end_time": "10:00"
+        },
+        "Python_Programming": {
+            "start_time": "13:30",
+            "end_time": "06:35"
+        }
+    },
+    "Saturday": {
+        "Weekend Seminar": {
+            "start_time": "11:00",
+            "end_time": "14:00"
+        }
+    },
+    "Friday": {
+        "Flutter": {
+            "start_time": "09:30",
+            "end_time": "21:30"
+        }
+    },
+    "Tuesday": {
+        "Flutter": {
+            "start_time": "10:00",
+            "end_time": "12:00"
+        }
+    }
+}

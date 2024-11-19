@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Student Record</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #ffffff);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 600px;
+            margin: 20px auto; /* Center container horizontally */
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            color: #00796b; /* Dark teal color */
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            letter-spacing: 1px;
+        }
+
+        form {
+            margin: 20px 0;
+            text-align: left; /* Align text to the left for form inputs */
+        }
+
+        label {
+            display: block; /* Make labels block elements for better spacing */
+            margin: 10px 0; /* Add margin for spacing */
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px); /* Full width input minus padding */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4db6ac; /* Light teal color */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #009688; /* Darker teal color */
+            transform: translateY(-2px);
+        }
+
+        a {
+            color: #00796b; /* Dark teal color */
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 20px;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #004d40; /* Darker teal color */
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <script>
+        alert("{{ messages[0] }}");
+      </script>
+    {% endif %}
+    {% endwith %}
+    <div class="container">
+        <h1>Delete Student Record</h1>
+        <form method="POST" action="{{ url_for('delete_student') }}">
+            <label for="rollno">Student Roll Number:</label>
+            <input type="text" name="rollno" required>
+            <button type="submit">Delete Student</button>
+        </form>
+        <form action="{{ url_for('teacher_dashboard') }}" method="get">
+            <button type="submit">Back to Dashboard</button>
+        </form>
+    </div>
+
+    <script>
+        // Display a welcome message with a timeout
+        // window.onload = function() {
+        //     setTimeout(function() {
+        //         alert("Welcome to the Delete Student Record Page!");
+        //     }, 500);
+        // };
+    </script>
+</body>
+</html>
